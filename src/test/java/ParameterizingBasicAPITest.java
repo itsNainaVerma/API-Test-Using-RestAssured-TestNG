@@ -54,7 +54,7 @@ public class ParameterizingBasicAPITest {
     }
 
     @Test (priority = 2, dependsOnMethods = "checkStatusCode_expectHttp200", dataProvider = "place")
-    public void checkPostCodeInResponse_exceptFortMarket(String zipcode, String countryCode, String Place, String State, String Country){
+    public void checkPostCodeInResponse_expectTrue(String zipcode, String countryCode, String Place, String State, String Country){
         given().pathParams("zipcode",zipcode).
                 pathParams("countryCode",countryCode).
                 when().
@@ -65,7 +65,7 @@ public class ParameterizingBasicAPITest {
     }
 
     @Test(priority = 3, dependsOnMethods = "checkStatusCode_expectHttp200", dataProvider = "place")
-    public void checkStateNameInResponse_exceptMaharashtra(String zipcode, String countryCode, String Place, String State, String Country){
+    public void checkStateNameInResponse_expectTrue(String zipcode, String countryCode, String Place, String State, String Country){
         given().pathParams("zipcode",zipcode).
                 pathParams("countryCode",countryCode).
                 when().
@@ -76,7 +76,7 @@ public class ParameterizingBasicAPITest {
     }
 
     @Test (priority = 4, dependsOnMethods = "checkStatusCode_expectHttp200", dataProvider = "place")
-    public void checkCountryInResponse_exceptIndia(String zipcode,String countryCode, String place, String State, String Country){
+    public void checkCountryInResponse_expectTrue(String zipcode,String countryCode, String place, String State, String Country){
         given().pathParams("zipcode",zipcode).
                 pathParams("countryCode",countryCode).
                 when().
@@ -87,7 +87,7 @@ public class ParameterizingBasicAPITest {
     }
 
     @Test (priority = 5, dependsOnMethods = "checkStatusCode_expectHttp200", dataProvider = "place")
-    public void checkCountryAbbreviationInResponse_exceptFortMarket(String zipcode, String countryCode, String Place, String State, String Country){
+    public void checkCountryAbbreviationInResponse_expectTrue(String zipcode, String countryCode, String Place, String State, String Country){
         given().pathParams("zipcode",zipcode).
                 pathParams("countryCode",countryCode).
                 when().
@@ -98,7 +98,7 @@ public class ParameterizingBasicAPITest {
     }
 
     @Test (priority = 6, dependsOnMethods = "checkStatusCode_expectHttp200", dataProvider = "place")
-    public void checkIfPlaceAvailable_exceptTrue(String zipcode, String countryCode, String Place, String State, String Country){
+    public void checkIfPlaceAvailable_expectTrue(String zipcode, String countryCode, String Place, String State, String Country){
         given().pathParams("zipcode",zipcode).
                 pathParams("countryCode",countryCode).
                 when().
@@ -108,7 +108,7 @@ public class ParameterizingBasicAPITest {
     }
 
     @Test (priority = 7, dependsOnMethods = "checkStatusCode_expectHttp200", dataProvider = "place")
-    public void checkIfPlaceNotAvailable_exceptTrue(String zipcode, String countryCode, String Place, String State, String Country){
+    public void checkIfPlaceNotAvailable_expectTrue(String zipcode, String countryCode, String Place, String State, String Country){
         given().pathParams("zipcode",zipcode).
                 pathParams("countryCode",countryCode).
                 when().
