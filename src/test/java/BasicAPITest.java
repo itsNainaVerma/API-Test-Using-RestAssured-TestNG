@@ -83,5 +83,16 @@ public class BasicAPITest {
                 then().assertThat().
                 body("places.'place name'", hasSize(26));
     }
+
+    @Test (priority = 9, dependsOnMethods = "checkStatusCode_expectHttp200")
+    public void EdgeScenarioTest(){
+        given().
+                when().
+                get("http://zippopotam.us/IN/400001").
+                then().assertThat().
+                body("places[-2].'place name'", equalTo("Adem Street")).
+                body("places.findAll{it.'state' != 'Maharashtra'}", empty());
+    }
+
 }
 
